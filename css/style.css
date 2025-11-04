@@ -83,3 +83,12 @@ body{
   width: auto;
   margin-left: -10px;
 }
+@media (max-width: 600px) {
+  .logo {
+    height: 48px;
+  }
+  .hero-logo {
+    height: 80px;
+  }
+}
+
