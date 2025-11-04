@@ -23,10 +23,17 @@ body{
 
 .container{max-width:var(--container);margin:0 auto;padding:48px 20px}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-
+.header-inner {
+  align-items: center;
+  padding: 12px 0;
+}
 
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-
+.logo {
+  height: 64px;   /* vorher 36px */
+  width: auto;
+  filter: drop-shadow(0 0 8px #00FFC6); /* optionaler Glow */
+}
 .brand-text{font-weight:700;letter-spacing:1px}
 .nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:15px}
 .hero{padding:60px 20px;text-align:left}
@@ -71,4 +78,16 @@ body{
   box-shadow: 0 0 10px #00FFC6;
   transition: all 0.2s ease;
 }
-
+.hero-logo {
+  height: 120px;
+  width: auto;
+  margin-left: -10px;
+}
+@media (max-width: 600px) {
+  .logo {
+    height: 48px;
+  }
+  .hero-logo {
+    height: 80px;
+  }
+}
