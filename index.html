@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neuroform — Tools for the connected mind</title>
+  <meta name="description" content="Neuroform — kleine, nützliche Tools und Templates für Entwickler und Designer." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/Neuroform_Icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="assets/Neuroform_Logo_Dark.png" alt="Neuroform" class="logo" />
+        <span class="brand-text">Neuroform</span>
+      </a>
+      <nav class="nav">
+        <a href="#tools">Tools</a>
+        <a href="#templates">Templates</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero container">
+        <h1>Tools for the connected mind.</h1>
+        <p class="lead">Simple, elegant web tools and template that merge design and logic.</p>
+        <div class="cta-row">
+            <a class="btn primary" href="#tools">Explore Tools</a>
+            <a class="btn ghost" href="#templates">Shop Templates</a>
+        </div>
+    </section>
+
+     <section id="tools" class="tools container">
+      <h2>Free Tools</h2>
+      <div class="tool-grid">
+        <article class="tool-card">
+          <h3>Pomodoro Timer</h3>
+          <p>Focus sessions with work / break cycles.</p>
+          <div class="tool" id="pomodoro">
+            <div class="display" id="pomodoro-display">25:00</div>
+            <div class="controls">
+              <button id="start-pause">Start</button>
+              <button id="reset">Reset</button>
+            </div>
+            <div class="settings">
+              <label>Work <input id="work-min" type="number" min="1" max="120" value="25"/></label>
+              <label>Break <input id="break-min" type="number" min="1" max="60" value="5"/></label>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Gradient Generator</h3>
+          <p>Create CSS linear-gradients and copy the code.</p>
+          <div class="tool" id="gradient-tool">
+            <div class="inputs">
+              <input type="color" id="g-color-1" value="#00FFC6"/>
+              <input type="color" id="g-color-2" value="#7A5FFF"/>
+              <label>Angle <input id="g-angle" type="range" min="0" max="360" value="90"/></label>
+            </div>
+            <div id="g-preview" class="g-preview"></div>
+            <pre id="g-css" class="g-css">background: linear-gradient(90deg,#00FFC6,#7A5FFF);</pre>
+            <div class="controls">
+              <button id="copy-css">Copy CSS</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="templates" class="container templates">
+      <h2>Templates</h2>
+      <p>Coming soon — Notion & Figma templates for devs and designers. Link to Etsy/Gumroad when ready.</p>
+      <div class="placeholder">Launch with 1–2 carefully designed templates: Dev Dashboard, UI Kit.</div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About Neuroform</h2>
+      <p>Neuroform creates focused tools and templates for developers and designers — minimal, fast and useful.</p>
+      <p class="muted">Built by you — &copy; <span id="year"></span> Neuroform</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Neuroform • Tools for the connected mind • <a href="#">Privacy</a></small>
+    </div>
+  </footer>
+
+  <script src="js/pomodoro.js"></script>
+  <script src="js/gradient.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+  </html>
