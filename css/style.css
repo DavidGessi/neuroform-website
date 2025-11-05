@@ -91,3 +91,73 @@ body{
     height: 80px;
   }
 }
+/* Idea Tracker styles */
+.idea-inputs{
+  display: flex;
+  gap:8px;
+  align-items: center;
+}
+.idea-inputs input[type="text"]{
+  flex: 1;
+  padding:10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: #0B0B0B;
+  color: var(--text);
+}
+.idea-inputs button{
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  border:0;
+  color:#0E0E0E;
+  font-weight: 700;
+  cursor: pointer;
+}
+.idea-list{
+  list-style:none;
+  padding: 8px 0 0 0;
+  margin: 12px 0;
+  max-height: 220px;
+  overflow: auto;
+}
+.idea-list li{
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap:12px;
+  align-items: center;
+  font-size: 14px;
+}
+.idea-list li .text{flex:1;}
+.idea-list li .meta{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:8px;
+  white-space:nowrap
+}
+.idea-list li button.delete{
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  cursor:pointer;
+  padding:6px;
+  border-radius:6px;
+}
+.idea-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:10px;
+  margin-top: 8px;
+}
+.idea-actions button{
+  padding:8px 12px;
+  border-radius:8px;
+  border:0px;
+  background:rgba(255,255,255,0.04);
+  cursor: pointer;
+}
