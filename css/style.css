@@ -91,73 +91,157 @@ body{
     height: 80px;
   }
 }
-/* Idea Tracker styles */
-.idea-inputs{
-  display: flex;
+/* Idea Tracker styles (enhanced) */
+.idea-inputs {
+  display:flex;
   gap:8px;
-  align-items: center;
+  align-items:center;
 }
 .idea-inputs input[type="text"]{
-  flex: 1;
+  flex:1;
   padding:10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: #0B0B0B;
-  color: var(--text);
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:#0B0B0B;
+  color:var(--text);
 }
 .idea-inputs button{
-  padding: 10px 14px;
-  border-radius: 8px;
-  background: linear-gradient(90deg,var(--accent),var(--accent2));
-  border:0;
-  color:#0E0E0E;
-  font-weight: 700;
-  cursor: pointer;
+  padding:10px 14px;
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border:0;color:#0E0E0E;font-weight:700;cursor:pointer;
 }
-.idea-list{
-  list-style:none;
-  padding: 8px 0 0 0;
-  margin: 12px 0;
-  max-height: 220px;
-  overflow: auto;
-}
-.idea-list li{
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.02);
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-  gap:12px;
-  align-items: center;
-  font-size: 14px;
-}
-.idea-list li .text{flex:1;}
-.idea-list li .meta{
-  color:var(--muted);
-  font-size:12px;
-  margin-left:8px;
-  white-space:nowrap
-}
-.idea-list li button.delete{
+
+/* toolbar */
+.idea-toolbar .mini {
+  padding:6px 10px;
+  border-radius:8px;
   background:transparent;
-  border:0;
+  border:1px solid rgba(255,255,255,0.04);
   color:var(--muted);
   cursor:pointer;
-  padding:6px;
-  border-radius:6px;
+  margin-right:8px;
 }
-.idea-actions{
+
+/* list */
+.idea-list{
+  list-style:none;
+  padding:8px 0 0 0;
+  margin:12px 0;
+  max-height:260px;
+  overflow:auto;
+}
+.idea-list li{
+  padding:10px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.02);
+  margin-bottom:8px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  font-size:14px;
+}
+.idea-item-left {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:1;
+  min-width:0;
+}
+.idea-item-left .text{
+  flex:1;
+  min-width:0;
+  word-break:break-word;
+}
+.idea-item-left .text.done{
+  text-decoration:line-through;
+  opacity:0.6;
+}
+
+/* actions inside item */
+.idea-list li .meta {
+  color:var(--muted);font-size:12px;margin-left:8px;white-space:nowrap;margin-right:8px;
+}
+.idea-list li button.icon{
+  background:transparent;border:0;color:var(--muted);cursor:pointer;padding:6px;border-radius:6px;
+}
+
+/* edit input inside item */
+.idea-edit-input {
+  flex:1;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:#0B0B0B;
+  color:var(--text);
+}
+
+/* actions */
+.idea-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.idea-actions button{padding:8px 12px;border-radius:8px;border:0;background:rgba(255,255,255,0.04);cursor:pointer}
+
+/* small responsive tweak */
+@media (max-width:600px){
+  .idea-toolbar{flex-direction:column;gap:8px;align-items:flex-start}
+  .idea-list li{flex-direction:column;align-items:flex-start}
+  .idea-list li .meta{margin-top:8px}
+}
+
+/* Idea Tracker improvement of the list */
+
+/* --- Idea Tracker: Layout-Fixes & größere Textanzeige --- */
+
+/* make the left column a flexible row so text has space */
+.idea-item-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap:10px;
-  margin-top: 8px;
+  gap: 12px;
+  flex: 1 1 auto;      /* grow/shrink allowed */
+  min-width: 0;        /* very important for flex children to allow truncation/wrapping */
 }
-.idea-actions button{
-  padding:8px 12px;
-  border-radius:8px;
-  border:0px;
-  background:rgba(255,255,255,0.04);
-  cursor: pointer;
+
+/* the text block itself: allow wrapping normally and bigger font */
+.idea-item-left .text {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: normal;        /* allow normal wrapping */
+  word-break: break-word;     /* break long words where needed */
+  overflow-wrap: anywhere;    /* better breaking */
+  font-size: 16px;            /* make text bigger */
+  line-height: 1.3;
+  padding-right: 8px;
+}
+
+/* avoid the strange single-letter column: ensure checkbox stays inline */
+.idea-item-left input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+/* adjust list item alignment so meta and actions don't squeeze text */
+.idea-list li {
+  display: flex;
+  align-items: center;   /* center vertically on wide screens */
+  gap: 12px;
+}
+
+/* ensure meta (timestamp) sits on the right but doesn't push text too small */
+.idea-list li .meta {
+  flex: 0 0 auto;
+  margin-left: 8px;
+  color: var(--muted);
+}
+
+/* actions buttons keep fixed size */
+.idea-list li .icon {
+  flex: 0 0 auto;
+}
+
+/* responsive tweak for small screens */
+@media (max-width: 600px) {
+  .idea-list li { flex-direction: column; align-items: flex-start; }
+  .idea-list li .meta { margin-top: 8px; }
+  .idea-item-left { width: 100%; }
 }

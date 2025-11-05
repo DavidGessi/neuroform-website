@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Neuroform — Tools for the connected mind</title>
   <meta name="description" content="Neuroform — kleine, nützliche Tools und Templates für Entwickler und Designer." />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="assets/Neuroform_Icon.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">
-        <img src="assets/Neuroform_Icon.png" alt="Neuroform" class="logo" id="iconLogo"/>
+        <img src="assets/Neuroform_Icon.png" alt="Neuroform" class="logo" id="iconLogo" />
         <span class="hero-logo"><img src="assets/Neuroform_Logo_Dark.png" alt="Neuroform" class="hero-logo" /></span>
       </a>
       <nav class="nav">
@@ -26,16 +30,16 @@
   </header>
   <main>
     <section class="hero container">
-        
-        <h1>Tools for the connected mind.</h1>
-        <p class="lead">Simple, elegant web tools and template that merge design and logic.</p>
-        <div class="cta-row">
-            <a class="btn primary" href="#tools">Explore Tools</a>
-            <a class="btn ghost" href="#templates">Shop Templates</a>
-        </div>
+
+      <h1>Tools for the connected mind.</h1>
+      <p class="lead">Simple, elegant web tools and template that merge design and logic.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#tools">Explore Tools</a>
+        <a class="btn ghost" href="#templates">Shop Templates</a>
+      </div>
     </section>
 
-     <section id="tools" class="tools container">
+    <section id="tools" class="tools container">
       <h2>Free Tools</h2>
       <div class="tool-grid">
         <article class="tool-card">
@@ -48,8 +52,8 @@
               <button id="reset">Reset</button>
             </div>
             <div class="settings">
-              <label>Work <input id="work-min" type="number" min="1" max="120" value="25"/></label>
-              <label>Break <input id="break-min" type="number" min="1" max="60" value="5"/></label>
+              <label>Work <input id="work-min" type="number" min="1" max="120" value="25" /></label>
+              <label>Break <input id="break-min" type="number" min="1" max="60" value="5" /></label>
             </div>
           </div>
         </article>
@@ -59,9 +63,9 @@
           <p>Create CSS linear-gradients and copy the code.</p>
           <div class="tool" id="gradient-tool">
             <div class="inputs">
-              <input type="color" id="g-color-1" value="#00FFC6"/>
-              <input type="color" id="g-color-2" value="#7A5FFF"/>
-              <label>Angle <input id="g-angle" type="range" min="0" max="360" value="90"/></label>
+              <input type="color" id="g-color-1" value="#00FFC6" />
+              <input type="color" id="g-color-2" value="#7A5FFF" />
+              <label>Angle <input id="g-angle" type="range" min="0" max="360" value="90" /></label>
             </div>
             <div id="g-preview" class="g-preview"></div>
             <pre id="g-css" class="g-css">background: linear-gradient(90deg,#00FFC6,#7A5FFF);</pre>
@@ -71,21 +75,34 @@
           </div>
         </article>
 
-        <article class="tool-card">
-            <h3>Idea Tracker</h3>
-            <p>Save quick ideas, todos or notes locally- They persist in your browser.</p>
-            <div class="tool" id="idea-tool">
-              <div class="idea-inputs">
-                <input id="idea-text" type="text" placeholder="Write a quick idea..."/>
-                <button id="idea-add">Add</button>
-              </div>
-              <ul id="idea-list" class="idea-list"></ul>
-              <div class="idea-actions">
-                <button id="idea-clear">Clear all</button>
-                <small class="muted">Saved locally in your browser</small>
-              </div>
+        <article class="tool-card" id="idea-card">
+          <h3>Idea Tracker</h3>
+          <p>Save quick ideas, todos or notes locally. They persist in your browser.</p>
+
+          <div class="tool" id="idea-tool">
+            <div class="idea-inputs">
+              <input id="idea-text" type="text" placeholder="Write a quick idea..." />
+              <button id="idea-add">Add</button>
             </div>
+
+            <div class="idea-toolbar"
+              style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+              <div>
+                <button id="idea-export-json" class="mini">Export JSON</button>
+                <button id="idea-export-csv" class="mini">Export CSV</button>
+              </div>
+              <div class="muted" style="font-size:12px;">Saved locally in your browser</div>
+            </div>
+
+            <ul id="idea-list" class="idea-list" aria-live="polite"></ul>
+
+            <div class="idea-actions" style="margin-top:10px;">
+              <button id="idea-clear">Clear all</button>
+              <small class="muted">Tip: press Enter to add</small>
+            </div>
+          </div>
         </article>
+
 
       </div>
     </section>
@@ -111,7 +128,8 @@
 
   <script src="js/pomodoro.js"></script>
   <script src="js/gradient.js"></script>
-  <script src="js/main.js"></script>
   <script src="js/idea.js"></script>
-  </body>
-  </html>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
